@@ -7,9 +7,7 @@ Stay hydrated throughout the day with this simple water reminder script. This sc
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Improvements](#improvements)
-- [Contribute](#contribute)
-- [License](#license)
+
 
 ## Features
 
@@ -34,3 +32,10 @@ Stay hydrated throughout the day with this simple water reminder script. This sc
 Run the script:
 ```bash
 python3 main.py
+
+
+## Possible Improvements
+
+- Finalize implementing water_count to show how many times I drank water a day
+- Add graphs
+- Create a simple UI with multiple functions
