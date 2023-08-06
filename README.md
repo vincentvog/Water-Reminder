@@ -22,7 +22,7 @@ Stay hydrated throughout the day with this simple water reminder script. This sc
 1. Ensure you have Python installed on your machine.
 2. Clone this repository:
     ```
-    git clone https://github.com/YourUsername/water-reminder.git
+    git clone https://github.com/mihnearad/Water-Reminder
     ```
 3. Navigate to the project directory:
     ```
