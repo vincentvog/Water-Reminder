@@ -1,11 +1,13 @@
-import time
 import os
+import time
 import datetime
 
-LOG_FILE = "water_intake_log.txt"
+# Determine the absolute path to the directory containing this script
+script_dir = os.path.dirname(os.path.realpath(__file__))
+LOG_FILE = os.path.join(script_dir, "water_intake_log.txt")
 
 def send_notification(title, message):
-    return os.system(f"osascript -e 'display dialog \"{message}\" with title \"{title}\" buttons {{\"I drank water\", \"Snooze\", \"Exit\"}} default button 1'") == 0
+    return os.system(f"osascript -e 'display dialog \"{message}\" with title \"{title}\" buttons {{\"I drank water\", \"Snooze\", \"Exit\"}} default button 1'")
 
 def log_water_intake():
     with open(LOG_FILE, 'a') as file:
@@ -15,9 +17,11 @@ def main():
     try:
         while True:
             response = send_notification("Water Reminder", "Did you drink water?")
-            if response:  # If "I drank water" is pressed
+            if response == 0:  # If "I drank water" is pressed
                 log_water_intake()
-            elif not response:  # If "Exit" is pressed
+            elif response == 256:  # If "Snooze" is pressed
+                pass
+            elif response == 512:  # If "Exit" is pressed
                 break
             time.sleep(60 * 30)  # Remind every 30 minutes
     except KeyboardInterrupt:
